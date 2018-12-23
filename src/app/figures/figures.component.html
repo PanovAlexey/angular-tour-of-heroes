@@ -1,11 +1,20 @@
-<h2>{{nazcaFigure.name | uppercase}} Details</h2>
-<div><span>id: </span>{{nazcaFigure.id}}</div>
-<div><span>coordinates_latitude: </span>{{nazcaFigure.coordinates_latitude}}</div>
-<div><span>coordinates_longitude: </span>{{nazcaFigure.coordinates_longitude}}</div>
-<div><span>name: </span>{{nazcaFigure.name}}</div>
-
-<div>
-  <label>Change name:
-    <input [(ngModel)]="nazcaFigure.name" placeholder="name">
-  </label>
+<div *ngIf="selectedNazcaFigure">
+  <h2>{{selectedNazcaFigure.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedNazcaFigure.id}}</div>
+  <div><span>coordinates_latitude: </span>{{selectedNazcaFigure.coordinates_latitude}}</div>
+  <div><span>coordinates_longitude: </span>{{selectedNazcaFigure.coordinates_longitude}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedNazcaFigure.name" placeholder="name">
+    </label>
+  </div>
 </div>
+
+<h2>Figures list</h2>
+<ul class="figures">
+  <li *ngFor="let nazcaFigure of nazcaFigures"
+      [class.selected]="nazcaFigure === selectedNazcaFigure"
+      (click)="onSelect(nazcaFigure)">
+    <span class="badge">{{nazcaFigure.id}}</span> {{nazcaFigure.name}}
+  </li>
+</ul>

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NazcaFigure} from '../nazca_figure';
+import {NAZCA_FIGURES} from '../mock-figures';
 
 @Component({
   selector: 'app-figures',
@@ -7,12 +8,13 @@ import {NazcaFigure} from '../nazca_figure';
   styleUrls: ['./figures.component.css']
 })
 export class FiguresComponent implements OnInit {
-  public nazcaFigure: NazcaFigure = {
-    id: 1,
-    name: 'Spider',
-    coordinates_latitude: '14° 41′ 38.95″ S',
-    coordinates_longitude: '75° 7′ 20.58″ W'
-  };
+  public selectedNazcaFigure: NazcaFigure;
+
+  public nazcaFigures: NazcaFigure[] = NAZCA_FIGURES;
+
+  public onSelect(nazcaFigure: NazcaFigure): void {
+    this.selectedNazcaFigure = nazcaFigure;
+  }
 
   constructor() {
   }
