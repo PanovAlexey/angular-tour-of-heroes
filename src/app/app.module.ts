@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { FiguresComponent } from './figures/figures.component';
 import { FigureDetailComponent } from './figure-detail/figure-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FiguresComponent,
     FigureDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,9 @@
 <h2>Figures list</h2>
 <ul class="figures">
-  <li *ngFor="let nazcaFigure of nazcaFigures"
-      [class.selected]="nazcaFigure === selectedNazcaFigure"
-      (click)="onSelect(nazcaFigure)">
-    <span class="badge">{{nazcaFigure.id}}</span> {{nazcaFigure.name}}
+  <li *ngFor="let nazcaFigure of nazcaFigures">
+    <a routerLink="/detail/{{nazcaFigure.id}}">
+      <span class="badge">{{nazcaFigure.id}}</span> {{nazcaFigure.name}}
+    </a>
   </li>
 </ul>
 
-<app-figure-detail [nazcaFigure]="selectedNazcaFigure"></app-figure-detail>

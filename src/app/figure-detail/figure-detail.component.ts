@@ -1,5 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { NazcaFigure } from '../nazca_figure';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Location} from '@angular/common';
+import {NazcaFigure} from '../nazca_figure';
+import {NazcaFigureService} from '../nazca-figure.service';
 
 @Component({
   selector: 'app-figure-detail',
@@ -8,11 +11,26 @@ import { NazcaFigure } from '../nazca_figure';
 })
 export class FigureDetailComponent implements OnInit {
 
-  @Input() nazcaFigure: NazcaFigure;
+  public nazcaFigure: NazcaFigure;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+    private nazcaFigureService: NazcaFigureService,
+    private location: Location
+  ) {
   }
 
+  ngOnInit(): void {
+    this.getNazcaFigure();
+  }
+
+  private getNazcaFigure(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.nazcaFigureService.getNazcaFigure(id)
+      .subscribe(nazcaFigure => this.nazcaFigure = nazcaFigure);
+  }
+
+  private goBack(): void {
+    this.location.back();
+  }
 }

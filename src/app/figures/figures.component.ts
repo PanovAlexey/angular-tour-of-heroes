@@ -8,13 +8,7 @@ import {NazcaFigureService} from '../nazca-figure.service';
   styleUrls: ['./figures.component.css']
 })
 export class FiguresComponent implements OnInit {
-  public selectedNazcaFigure: NazcaFigure;
-
   public nazcaFigures: NazcaFigure[];
-
-  public onSelect(nazcaFigure: NazcaFigure): void {
-    this.selectedNazcaFigure = nazcaFigure;
-  }
 
   private getNazcaFigures(): void {
     this.nazcaFigureService.getNazcaFigures()

@@ -1,0 +1,8 @@
+<h3>Top figures</h3>
+<div class="grid grid-pad">
+  <a *ngFor="let nazcaFigure of nazcaFigures" class="col-1-4" routerLink="/detail/{{nazcaFigure.id}}">
+    <div class="module nazcaFigure">
+      <h4>{{nazcaFigure.name}}</h4>
+    </div>
+  </a>
+</div>

@@ -12,9 +12,14 @@ export class NazcaFigureService {
   constructor(private messageService: MessagesService) { }
 
   public getNazcaFigures(): Observable<NazcaFigure[]> {
-    // TODO: send the message _after_ fetching the heroes
     this.messageService.add('NazcaFigureService: fetched figures');
 
     return of(NAZCA_FIGURES);
+  }
+
+  public getNazcaFigure(id: number): Observable<NazcaFigure> {
+    this.messageService.add(`NazcaFigureService: fetched figure id=${id}`);
+
+    return of(NAZCA_FIGURES.find(nazcaFigure => nazcaFigure.id === id));
   }
 }
