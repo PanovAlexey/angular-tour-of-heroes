@@ -10,16 +10,22 @@ import {NazcaFigureService} from '../nazca-figure.service';
 export class FiguresComponent implements OnInit {
   public selectedNazcaFigure: NazcaFigure;
 
-  public nazcaFigures: NazcaFigure[] = NAZCA_FIGURES;
+  public nazcaFigures: NazcaFigure[];
 
   public onSelect(nazcaFigure: NazcaFigure): void {
     this.selectedNazcaFigure = nazcaFigure;
   }
 
-  constructor() {
+  private getNazcaFigures(): void {
+    this.nazcaFigureService.getNazcaFigures()
+      .subscribe(nazcaFigures => this.nazcaFigures = nazcaFigures);
+  }
+
+  constructor(private nazcaFigureService: NazcaFigureService) {
   }
 
   ngOnInit() {
+    this.getNazcaFigures();
   }
 
 }
