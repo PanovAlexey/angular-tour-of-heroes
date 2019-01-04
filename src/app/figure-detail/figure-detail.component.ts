@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Location} from '@angular/common';
+
 import {NazcaFigure} from '../nazca_figure';
 import {NazcaFigureService} from '../nazca-figure.service';
 
@@ -32,5 +33,10 @@ export class FigureDetailComponent implements OnInit {
 
   private goBack(): void {
     this.location.back();
+  }
+
+  public save(): void {
+    this.nazcaFigureService.updateNazcaFigure(this.nazcaFigure)
+      .subscribe(() => this.goBack());
   }
 }

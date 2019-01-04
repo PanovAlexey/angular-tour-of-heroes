@@ -4,6 +4,17 @@
     <a routerLink="/detail/{{nazcaFigure.id}}">
       <span class="badge">{{nazcaFigure.id}}</span> {{nazcaFigure.name}}
     </a>
+    <button class="delete" title="delete nazcaFigure"
+            (click)="delete(nazcaFigure)">x</button>
   </li>
 </ul>
 
+<div>
+  <label>Figure name:
+    <input #nazcaFigureName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(nazcaFigureName.value); nazcaFigureName.value=''">
+    add
+  </button>
+</div>
