@@ -1,0 +1,11 @@
+<div *ngIf="nazcaFigure">
+  <h2>{{nazcaFigure.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{nazcaFigure.id}}</div>
+  <div><span>coordinates_latitude: </span>{{nazcaFigure.coordinates_latitude}}</div>
+  <div><span>coordinates_longitude: </span>{{nazcaFigure.coordinates_longitude}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="nazcaFigure.name" placeholder="name">
+    </label>
+  </div>
+</div>

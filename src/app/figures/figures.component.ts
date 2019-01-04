@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {NazcaFigure} from '../nazca_figure';
-import {NAZCA_FIGURES} from '../mock-figures';
+import {NazcaFigureService} from '../nazca-figure.service';
 
 @Component({
   selector: 'app-figures',
